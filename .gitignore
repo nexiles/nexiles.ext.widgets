@@ -1,0 +1,5 @@
+workspace/.sencha
+workspace/ext
+workspace/build
+*.pyc
+.sencha
