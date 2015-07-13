@@ -12,7 +12,8 @@ Change Log
 - none yet
 
 **Enhancements**
-- none yet
+- inital documentation setup
+  https://github.com/nexiles/nexiles.ext.widgets/issues/1
 
 **Bug fixes**
 - none yet

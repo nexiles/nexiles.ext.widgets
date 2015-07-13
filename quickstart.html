@@ -40,8 +40,22 @@
             
   <div class="section" id="quickstart">
 <span id="id1"></span><h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="really-quick-start">
-<h2>Really Quick Start<a class="headerlink" href="#really-quick-start" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="adding-the-official-nexiles-ext-package-repo">
+<span id="quickstart-add-repo"></span><h2>Adding the official nexiles ext package Repo<a class="headerlink" href="#adding-the-official-nexiles-ext-package-repo" title="Permalink to this headline">¶</a></h2>
+<p>To use released packages, do:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sencha package repo add nexiles http://developer.nexiles.com/packages/ext
+</pre></div>
+</div>
+<p>That&#8217;s all there is to setup.</p>
+</div>
+<div class="section" id="really-quick-start-package-maintainers-only">
+<h2>Really Quick Start (Package Maintainers only)<a class="headerlink" href="#really-quick-start-package-maintainers-only" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is for package maintainers only &#8211; to actually <strong>use</strong> the packages
+you only need to add the nexiles package repo and add dependencies to the <cite>app.json</cite> file
+of your ExtJs project.</p>
+</div>
 <p>Clone the repo and:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ cd nexiles.ext.widgets
 $ virtualenv .
@@ -52,12 +66,16 @@ $ fab init build
 </pre></div>
 </div>
 </div>
-<div class="section" id="adding-the-official-nexiles-ext-package-repo">
-<h2>Adding the official nexiles ext package Repo<a class="headerlink" href="#adding-the-official-nexiles-ext-package-repo" title="Permalink to this headline">¶</a></h2>
-<p>To use released packages, do:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ sencha package repo add nexiles http://developer.nexiles.com/packages/ext
-</pre></div>
-</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><strong>Packages and Sencha CMD</strong></dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://docs.sencha.com/cmd/6.x/cmd_packages/cmd_packages.html">packages intro</a></li>
+<li><a class="reference external" href="http://docs.sencha.com/cmd/6.x/cmd_packages/cmd_creating_packages.html">creating packages</a></li>
+</ul>
+</dd>
+</dl>
 </div>
 </div>
 
@@ -85,8 +103,9 @@ $ fab init build
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#really-quick-start">Really Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#adding-the-official-nexiles-ext-package-repo">Adding the official nexiles ext package Repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#really-quick-start-package-maintainers-only">Really Quick Start (Package Maintainers only)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#links">Links</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a></li>
