@@ -1,7 +1,7 @@
 import os
 import sys
 
-from fabric.api import task, local, run, lcd, env
+from fabric.api import task, local, run, lcd, env, execute
 from fabric.colors import red, green, yellow
 from fabric.contrib.project import rsync_project
 
@@ -17,6 +17,7 @@ ext_root = os.path.expanduser("~/develop/js/Sencha/ext-6.0.0")
 local_repo = os.path.expanduser("~/Applications/Sencha/Cmd/repo/pkgs")
 
 project_root = os.path.dirname(__file__)
+docs_dir = os.path.join(project_root, "docs")
 workspace = os.path.join(project_root, "workspace")
 package_build_dir = os.path.join(workspace, "build")
 
@@ -25,6 +26,10 @@ packages = ["nexiles-theme"]
 
 env.user = "nexiles"
 env.hosts = ["developer.nexiles.com"]
+
+##############################################################################
+# Repo Init
+##############################################################################
 
 
 @task
@@ -42,9 +47,20 @@ def init():
                 local("sencha generate package {}".format(package))
 
 
+##############################################################################
+# Building packages
+##############################################################################
 
 @task
-def build():
+def build_docs():
+    print(green("Building docs ..."))
+    with settings(hide("stdout", "running")):
+        with lcd("docs"):
+            local("make preview")
+
+
+@task
+def build_packages():
     for package in packages:
         print(green("Building " + package + " ..."))
         with settings(hide("stdout", "running")):
@@ -53,6 +69,16 @@ def build():
                     package=package)):
 
                 local("sencha package build")
+
+
+@task
+def build():
+    execute(build_packages)
+    execute(build_docs)
+
+##############################################################################
+# Package maintainer Tasks
+##############################################################################
 
 
 @task
@@ -71,5 +97,12 @@ def sync_repo():
         remote_dir="/srv/packages/ext",
         local_dir=local_repo+"/")
 
+
+@task
+def push_docs():
+    print(green("Building docs ..."))
+    with settings(hide("stdout", "running")):
+        with lcd("docs"):
+            local("make gh_pages gh_pages_sync")
 
 # EOF
