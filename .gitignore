@@ -3,3 +3,5 @@ workspace/ext
 workspace/build
 *.pyc
 .sencha
+_build
+_templates
